@@ -15,9 +15,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Attack",
+                    "name": "AttackLeft",
                     "type": "Button",
                     "id": "a4409be5-6960-4a7d-b562-d22cd847d98f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AttackRight",
+                    "type": "Button",
+                    "id": "dffa70fe-d84b-4b2e-841b-8fbdb2ee0d65",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -81,26 +90,26 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Left",
-                    "id": "4ba4167f-52e1-4d9d-8121-bfb8dce989f5",
-                    "path": "OneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "binding",
-                    "id": "09da830d-3fd2-4101-b410-e5acf51a52f3",
+                    "name": "",
+                    "id": "cb948e93-510b-4ec6-8d12-cd0acaeb7d9e",
                     "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Attack",
+                    "action": "AttackLeft",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d397c139-fd6b-42ec-87d5-545431f2a20a",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "AttackRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
