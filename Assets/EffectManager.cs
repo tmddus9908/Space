@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EffectManager : MonoBehaviour
 {
-    public static EffectManager instance = null;
+    public static EffectManager Instance = null;
 
     public GameObject AttackGun;
-
+    public GameObject AttackMissile;
     private void Start()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
         else
             Destroy(this.gameObject);
     }

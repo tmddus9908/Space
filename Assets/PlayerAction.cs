@@ -53,6 +53,15 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AttackMissile"",
+                    ""type"": ""Button"",
+                    ""id"": ""46a147f4-8621-46cb-b06d-32746f159bd9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""action"": ""AttackRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28da5466-c2e0-439e-9fae-2d47275711da"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""AttackMissile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -160,6 +180,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         m_PlayerActions_Move = m_PlayerActions.FindAction("Move", throwIfNotFound: true);
         m_PlayerActions_AttackLeft = m_PlayerActions.FindAction("AttackLeft", throwIfNotFound: true);
         m_PlayerActions_AttackRight = m_PlayerActions.FindAction("AttackRight", throwIfNotFound: true);
+        m_PlayerActions_AttackMissile = m_PlayerActions.FindAction("AttackMissile", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -224,6 +245,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_Move;
     private readonly InputAction m_PlayerActions_AttackLeft;
     private readonly InputAction m_PlayerActions_AttackRight;
+    private readonly InputAction m_PlayerActions_AttackMissile;
     public struct PlayerActionsActions
     {
         private @PlayerAction m_Wrapper;
@@ -231,6 +253,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_PlayerActions_Move;
         public InputAction @AttackLeft => m_Wrapper.m_PlayerActions_AttackLeft;
         public InputAction @AttackRight => m_Wrapper.m_PlayerActions_AttackRight;
+        public InputAction @AttackMissile => m_Wrapper.m_PlayerActions_AttackMissile;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -249,6 +272,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @AttackRight.started += instance.OnAttackRight;
             @AttackRight.performed += instance.OnAttackRight;
             @AttackRight.canceled += instance.OnAttackRight;
+            @AttackMissile.started += instance.OnAttackMissile;
+            @AttackMissile.performed += instance.OnAttackMissile;
+            @AttackMissile.canceled += instance.OnAttackMissile;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -262,6 +288,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @AttackRight.started -= instance.OnAttackRight;
             @AttackRight.performed -= instance.OnAttackRight;
             @AttackRight.canceled -= instance.OnAttackRight;
+            @AttackMissile.started -= instance.OnAttackMissile;
+            @AttackMissile.performed -= instance.OnAttackMissile;
+            @AttackMissile.canceled -= instance.OnAttackMissile;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -293,5 +322,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAttackLeft(InputAction.CallbackContext context);
         void OnAttackRight(InputAction.CallbackContext context);
+        void OnAttackMissile(InputAction.CallbackContext context);
     }
 }
