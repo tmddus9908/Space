@@ -16,6 +16,6 @@ public class ScrollBackground : MonoBehaviour
         if(transform.position.y <= -_scrollRange)
         {
             transform.position = _target.position + Vector3.up * _scrollRange;
-        }
+        } 
     }
 }
